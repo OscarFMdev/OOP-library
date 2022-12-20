@@ -1,8 +1,10 @@
-require './person.rb'
+# frozen_string_literal: true
+
+require './person'
 # Student class
 class Student < Person
-  def initialize(classroom = 'Unknown')
-    super(10)
+  def initialize(classroom, age, name)
+    super(age, name)
     @classroom = classroom
   end
 
@@ -11,9 +13,8 @@ class Student < Person
   end
   attr_reader :id, :name, :age, :classroom
 end
-student1 = Student.new('A')
+student1 = Student.new('A', 10, 'Alfred')
 
 puts student1.age # 10
 puts student1.classroom # A
-
-puts student1.play_hooky
+puts student1.play_hooky # ¯\(ツ)/¯
