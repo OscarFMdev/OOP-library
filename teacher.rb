@@ -5,7 +5,7 @@ require './person'
 # Teacher class
 class Teacher < Person
   def initialize(specialization, age, name = 'Unkown')
-    super(age, name, true)
+    super(age, name)
     @specialization = specialization
   end
 
@@ -16,7 +16,7 @@ class Teacher < Person
   attr_accessor :specialization, :age
 end
 
-teacher1 = Teacher.new('Math')
+teacher1 = Teacher.new('Math', 25)
 
-puts teacher1.age # Random age between 20 and 40 (if not given)
+puts teacher1.age # 25
 puts teacher1.specialization # 'Math'
