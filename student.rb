@@ -1,6 +1,8 @@
 require './person'
 # Student class
 class Student < Person
+  attr_reader :id, :name, :age, :classroom
+
   def initialize(classroom, age, name)
     super(age, name)
     @classroom = classroom
@@ -9,7 +11,6 @@ class Student < Person
   def play_hooky
     '¯\\(ツ)/¯'
   end
-  attr_reader :id, :name, :age, :classroom
 end
 student1 = Student.new('A', 10, 'Alfred')
 
