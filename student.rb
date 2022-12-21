@@ -1,7 +1,7 @@
 require './person'
 # Student class
 class Student < Person
-  attr_reader :id, :name, :age, :classroom
+  attr_reader :classroom
 
   def initialize(classroom, age, name)
     super(age, name)
