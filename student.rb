@@ -1,6 +1,8 @@
 require './person'
+require './classroom'
 # Student class
 class Student < Person
+  attr_accessor :classroom
   def initialize(classroom, age, name)
     super(age, name)
     @classroom = classroom
