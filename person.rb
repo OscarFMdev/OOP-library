@@ -37,10 +37,10 @@ person = Person.new(22, 'maximilianus')
 
 puts person.correct_name # 'maximilianus'
 
-capitalizedPerson = CapitalizeDecorator.new(person)
+capitalized_person = CapitalizeDecorator.new(person)
 
-puts capitalizedPerson.correct_name # 'Maximilianus'
+puts capitalized_person.correct_name # 'Maximilianus'
 
-capitalizedTrimmedPerson = TrimmerDecorator.new(capitalizedPerson)
+capitalized_trimmed_person = TrimmerDecorator.new(capitalized_person)
 
-puts capitalizedTrimmedPerson.correct_name # 'Maximilianus'
+puts capitalized_trimmed_person.correct_name # 'Maximilianus'
