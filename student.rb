@@ -3,6 +3,7 @@ require './classroom'
 # Student class
 class Student < Person
   attr_accessor :classroom
+
   def initialize(classroom, age, name)
     super(age, name)
     @classroom = classroom
@@ -23,4 +24,3 @@ puts student1.classroom
 classroom1 = Classroom.new('A')
 
 puts classroom1.add_student(student1)
-
