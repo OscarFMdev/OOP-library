@@ -89,7 +89,7 @@ class App
       else
         @people.push(Student.new(person_age, name: person_name))
       end
-      puts 'Person created successfully'
+      puts 'Person created successfully'.colorize(:green)
     when 2
       print 'Age: '
       person_age = gets.chomp.to_i
@@ -98,9 +98,9 @@ class App
       print 'Specialization: '
       person_specialization = gets.chomp.to_s
       @people.push(Teacher.new(person_age, person_specialization, name: person_name))
-      puts 'Person created successfully'
+      puts 'Person created successfully'.colorize(:green)
     else
-      puts 'Error: Invalid number, try again'
+      puts 'Error: Invalid number, try again'.colorize(:red)
       send(:create_person)
     end
   end # create_person
@@ -113,6 +113,8 @@ class App
     @books.push(Book.new(book_title, book_author))
     puts 'Book created successfully'.colorize(:green)
   end
+
+  
 
 end # App
 
