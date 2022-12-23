@@ -1,31 +1,45 @@
+require_relative 'student'
+require_relative 'rental'
+require_relative 'teacher'
+require_relative 'book'
 
+OPTIONS = {
+  '1' => :list_books,
+  '2' => :list_people,
+  '3' => :create_person,
+  '4' => :create_book,
+  '5' => :create_rental,
+  '6' => :list_rentals,
+  '7' => :quit
+}.freeze
   # Define the Person class
-class Person
-  attr_accessor :name, :age
-
-  def initialize(name, age)
-    @name = name
-    @age = age
-  end
-end
 
 class App
   # Create an empty list of people
-  people = []
+  def initialize
+    @people = []
+    @books = []
+    @rentals = []
+  end
 
   # Display the main menu
   def display_menu
-    puts "Welcome to the People Manager!"
-    puts "1. Add a person"
-    puts "2. View the list of people"
-    puts "3. Quit"
+    puts ''
+    puts 'Please choose an option by enterin a number:'
+    puts '1 - List all books'
+    puts '2 - List all people'
+    puts '3 - Create a person'
+    puts '4 - Create a book'
+    puts '5 - Create a rental'
+    puts '6 - List all rentals for a given person id'
+    puts '7 - Exit'
   end
 
   # Loop until the user selects the "Quit" option
   def selection
     loop do
-      display_menu()
-      print "Enter your choice: "
+      print "Please choose an option by entering a number: "
+      display_menu
       choice = gets.chomp
 
       case choice
