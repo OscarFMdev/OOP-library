@@ -141,28 +141,3 @@ class App
   end
 
 end # App
-
-
-#      case choice
-# when "1"
-#   # Add a person to the list
-#   print "Enter the name of the person: "
-#   name = gets.chomp
-#   print "Enter the age of the person: "
-#   age = gets.chomp
-#   person = Person.new(name, age)
-#   people << person
-#   puts "Person added successfully!"
-# when "2"
-#   # View the list of people
-#   puts "Here is the list of people:"
-#   people.each do |person|
-#     puts "#{person.name}, #{person.age} years old"
-#   end
-# when "3"
-#   # Quit the program
-#   puts "Goodbye!"
-#   exit
-# else
-#   puts "Invalid selection. Please try again."
-# end
