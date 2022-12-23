@@ -14,8 +14,3 @@ class Teacher < Person
   end
 end
 
-teacher1 = Teacher.new('Math', 25)
-
-puts teacher1.age # 25
-# puts teacher1.specialization # 'Math'
-puts teacher1.parent_permission # True
