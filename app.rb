@@ -79,7 +79,7 @@ class App
     option_person = gets.chomp.to_i
     case option_person
     when 1
-      add_student()
+      add_student
       puts 'Person created successfully'.colorize(:green)
     when 2
       print 'Age: '
