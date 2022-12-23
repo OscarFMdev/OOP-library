@@ -59,25 +59,23 @@ class App
   # selection
 
   def list_books
-    if @books == []
-      puts "\nNo books added, please, add some books \n".colorize(:red)
-    end
+    message = @books &&  "\nNo books added, please, add some books \n".colorize(:red)
+    puts message
     @books.each do |book|
       puts "Title: #{book.title}, Author: #{book.author}".colorize(:green)
     end
   end
 
   def list_people
-    if @people == []
-      puts "\nNo people added, please, add some people \n".colorize(:red)
-    end
+    message = @people && "\nNo people added, please, add some people \n".colorize(:red)
+    puts message
     @people.each do |person|
       puts "Name: #{person.name}, ID: #{person.id}, Age: #{person.age}".colorize(:green)
     end
   end
 
   def create_person
-    print "Do you want to create a student #{'(1)'.colorize(:green)} or a teacher #{'(2)'.colorize(:yellow)}? [Input the number]: "
+    print "Do you want to create a student #{'(1)'.colorize(:green)} or a teacher '(2)'? [Input the number]: "
     option_person = gets.chomp.to_i
     case option_person
     when 1
