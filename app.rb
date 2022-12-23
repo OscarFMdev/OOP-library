@@ -59,7 +59,7 @@ class App
   # selection
 
   def list_books
-    message = @books &&  "\nNo books added, please, add some books \n".colorize(:red)
+    message = @books.empty? && "\nNo books added, please, add some books \n".colorize(:red)
     puts message
     @books.each do |book|
       puts "Title: #{book.title}, Author: #{book.author}".colorize(:green)
@@ -67,7 +67,7 @@ class App
   end
 
   def list_people
-    message = @people && "\nNo people added, please, add some people \n".colorize(:red)
+    message = @people.empty? && "\nNo people added, please, add some people \n".colorize(:red)
     puts message
     @people.each do |person|
       puts "Name: #{person.name}, ID: #{person.id}, Age: #{person.age}".colorize(:green)
@@ -79,12 +79,9 @@ class App
     option_person = gets.chomp.to_i
     case option_person
     when 1
-      print 'Age: '
-      person_age = gets.chomp.to_i
-      print 'Name: '
-      person_name = gets.chomp.to_s
-      print 'Has parent permission? [Y/N]: '
-      person_permission = gets.chomp.to_s
+      print 'Age: '; person_age = gets.chomp.to_i
+      print 'Name: '; person_name = gets.chomp.to_s
+      print 'Has parent permission? [Y/N]: '; person_permission = gets.chomp.to_s
       add_student(person_permission, person_age, person_name)
       puts 'Person created successfully'.colorize(:green)
     when 2
