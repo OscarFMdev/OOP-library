@@ -51,11 +51,11 @@ class App
         send(action)
       else
         puts 'INVALID OPTION, please, try again'.colorize(:red)
-      end 
+      end
       # if_condition
-    end 
+    end
     # loop
-  end 
+  end
   # selection
 
   def list_books
@@ -106,7 +106,7 @@ class App
       puts 'Error: Invalid number, try again'.colorize(:red)
       send(:create_person)
     end
-  end # create_person
+  end
 
   def create_book
     print 'Title: '
@@ -142,5 +142,4 @@ class App
       puts "Date: #{object.date}, Book '#{object.book.title}' by #{object.book.author}" if object.person.id == person_id
     end
   end
-
-end # App
+end
