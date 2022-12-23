@@ -41,11 +41,11 @@ class App
       puts ""
       print "Please choose an option by entering a number: "
       display_menu
-      choice = gets.chomp
+      choice = gets.chomp.colorize
       action = OPTIONS[choice]
 
       if action == :quit
-        puts "Thank you for using this app!"
+        puts "Thank you for using this app!".colorize(:green)
         break
       elsif action
         send(action)
@@ -117,18 +117,18 @@ class App
   def create_rental
     puts 'Select a book from the following list by number'
     @books.each_with_index do |object, index|
-      puts "#{index}) Title: '#{object.title}', Author: #{object.author}"
+      puts "#{index}) Title: '#{object.title}', Author: #{object.author}".colorize(:green)
     end
     book_number = gets.chomp.to_i
     puts 'Select a person from the following list by number (not id)'
     @people.each_with_index do |object, index|
-      puts "#{index}) [#{object.class}] Name: #{object.name}, ID: #{object.id}, Age: #{object.age}"
+      puts "#{index}) [#{object.class}] Name: #{object.name}, ID: #{object.id}, Age: #{object.age}".colorize(:green)
     end
     person_number = gets.chomp.to_i
     print 'Date: '
     date = gets.chomp.to_s
     @rentals.push(Rental.new(@books[book_number], @people[person_number], date))
-    puts 'Rental created successfully'
+    puts 'Rental created successfully'.colorize(:green)
   end
 
   def list_rentals
