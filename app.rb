@@ -59,18 +59,22 @@ class App
   # selection
 
   def list_books
-    message = @books.empty? && "\nNo books added, please, add some books \n".colorize(:red)
-    puts message
-    @books.each do |book|
-      puts "Title: #{book.title}, Author: #{book.author}".colorize(:green)
+    if @books.empty?
+      puts "\nNo books added, please, add some books \n".colorize(:red)
+    else
+      @books.each do |book|
+        puts "Title: #{book.title}, Author: #{book.author}".colorize(:green)
+      end
     end
   end
 
   def list_people
-    message = @people.empty? && "\nNo people added, please, add some people \n".colorize(:red)
-    puts message
-    @people.each do |person|
-      puts "Name: #{person.name}, ID: #{person.id}, Age: #{person.age}".colorize(:green)
+    if @people.empty?
+      puts "\nNo people added, please, add some people \n".colorize(:red)
+    else
+      @people.each do |person|
+        puts "Name: #{person.name}, ID: #{person.id}, Age: #{person.age}".colorize(:green)
+      end
     end
   end
 
