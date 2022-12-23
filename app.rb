@@ -85,11 +85,7 @@ class App
       person_name = gets.chomp.to_s
       print 'Has parent permission? [Y/N]: '
       person_permission = gets.chomp.to_s
-      if person_permission.capitalize == 'N'
-        @people.push(Student.new(person_age, name: person_name, parent_permission: false))
-      else
-        @people.push(Student.new(person_age, name: person_name))
-      end
+      add_student(person_permission, person_age, person_name)
       puts 'Person created successfully'.colorize(:green)
     when 2
       print 'Age: '
@@ -103,6 +99,14 @@ class App
     else
       puts 'Error: Invalid number, try again'.colorize(:red)
       send(:create_person)
+    end
+  end
+
+  def add_student(person_permission, person_age, person_name)
+    if person_permission.capitalize == 'N'
+      @people.push(Student.new(person_age, name: person_name, parent_permission: false))
+    else
+      @people.push(Student.new(person_age, name: person_name))
     end
   end
 
