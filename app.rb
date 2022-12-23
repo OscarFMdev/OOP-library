@@ -2,6 +2,7 @@ require_relative 'student'
 require_relative 'rental'
 require_relative 'teacher'
 require_relative 'book'
+require 'colorize'
 
 OPTIONS = {
   '1' => :list_books,
@@ -25,7 +26,6 @@ class App
   # Display the main menu
   def display_menu
     puts ''
-    puts 'Please choose an option by enterin a number:'
     puts '1 - List all books'
     puts '2 - List all people'
     puts '3 - Create a person'
@@ -38,6 +38,7 @@ class App
   # Loop until the user selects the "Quit" option
   def selection
     loop do
+      puts ""
       print "Please choose an option by entering a number: "
       display_menu
       choice = gets.chomp
@@ -49,25 +50,31 @@ class App
       elsif action
         send(action)
       else
-        puts "INVALID OPTION, please, try again"
+        puts "INVALID OPTION, please, try again".colorize(:red)
       end # if_condition
     end # loop
   end # selection
 
   def list_books
+    if @books == []
+      puts "\nNo books added, please, add some books \n".colorize(:red)
+    end
     @books.each do |book|
-      puts "Title: #{book.title}, Author: #{book.author}"
+      puts "Title: #{book.title}, Author: #{book.author}".colorize(:green)
     end
   end
 
   def list_people
+    if @people == []
+      puts "\nNo people added, please, add some people \n".colorize(:red)
+    end
     @people.each do |person|
-      puts "Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+      puts "Name: #{person.name}, ID: #{person.id}, Age: #{person.age}".colorize(:green)
     end
   end
 
   def create_person
-    print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
+    print "Do you want to create a student #{'(1)'.colorize(:green)} or a teacher #{'(2)'.colorize(:yellow)}? [Input the number]: "
     option_person = gets.chomp.to_i
     case option_person
     when 1
@@ -98,7 +105,14 @@ class App
     end
   end # create_person
 
-  
+  def create_book
+    print 'Title: '
+    book_title = gets.chomp.to_s
+    print 'Author: '
+    book_author = gets.chomp.to_s
+    @books.push(Book.new(book_title, book_author))
+    puts 'Book created successfully'.colorize(:green)
+  end
 
 end # App
 
