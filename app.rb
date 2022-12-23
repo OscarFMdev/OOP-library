@@ -13,7 +13,7 @@ OPTIONS = {
   '6' => :list_rentals,
   '7' => :quit
 }.freeze
-  # Define the Person class
+# Define the Person class
 
 class App
   # Create an empty list of people
@@ -38,22 +38,25 @@ class App
   # Loop until the user selects the "Quit" option
   def selection
     loop do
-      puts ""
-      print "Please choose an option by entering a number: "
+      puts ''
+      print 'Please choose an option by entering a number: '
       display_menu
-      choice = gets.chomp.colorize
+      choice = gets.chomp
       action = OPTIONS[choice]
 
       if action == :quit
-        puts "Thank you for using this app!".colorize(:green)
+        puts 'Thank you for using this app!'.colorize(:green)
         break
       elsif action
         send(action)
       else
-        puts "INVALID OPTION, please, try again".colorize(:red)
-      end # if_condition
-    end # loop
-  end # selection
+        puts 'INVALID OPTION, please, try again'.colorize(:red)
+      end 
+      # if_condition
+    end 
+    # loop
+  end 
+  # selection
 
   def list_books
     if @books == []
