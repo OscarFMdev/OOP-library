@@ -79,9 +79,9 @@ class App
     option_person = gets.chomp.to_i
     case option_person
     when 1
-      print 'Age: '; person_age = gets.chomp.to_i
-      print 'Name: '; person_name = gets.chomp.to_s
-      print 'Has parent permission? [Y/N]: '; person_permission = gets.chomp.to_s
+      print 'Age: ' ; person_age = gets.chomp.to_i
+      print 'Name: ' ; person_name = gets.chomp.to_s
+      print 'Has parent permission? [Y/N]: ' ; person_permission = gets.chomp.to_s
       add_student(person_permission, person_age, person_name)
       puts 'Person created successfully'.colorize(:green)
     when 2
