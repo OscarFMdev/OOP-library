@@ -4,9 +4,8 @@ require './classroom'
 class Student < Person
   attr_accessor :classroom
 
-  def initialize(classroom, age, name)
-    super(age, name)
-    @classroom = classroom
+  def initialize(age, name: 'Unknown', parent_permission: true)
+    super(age, name: name, parent_permission: parent_permission)
   end
 
   def classroom_add(classroom)
@@ -18,14 +17,3 @@ class Student < Person
     '¯\\(ツ)/¯'
   end
 end
-student1 = Student.new('A', 10, 'Alfred')
-
-puts student1.age # 10
-# puts student1.classroom # A
-puts student1.play_hooky # ¯\(ツ)/¯
-
-puts student1.classroom
-
-classroom1 = Classroom.new('A')
-
-puts classroom1.add_student(student1)
